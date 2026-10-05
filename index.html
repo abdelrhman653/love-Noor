@@ -1239,15 +1239,18 @@ window.initFirebase = async function(){
 
     listenGallery();
 
-  }catch(e){
+}catch(e){
 
-    console.error("Firebase error:", e);
+  console.error("FIREBASE ERROR:", e);
 
-    renderLocalFallback();
+  renderLocalFallback();
 
-    toast("الحكاية فتحت ❤️ — Firebase محتاج إعداد بسيط");
+  toast("Firebase Error: " + (e.code || e.message));
 
-  }
+  $("uploadStatus").textContent =
+    "Firebase Error: " + (e.code || e.message);
+
+}
 
 };
 
